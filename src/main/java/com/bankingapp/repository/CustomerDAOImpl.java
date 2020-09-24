@@ -67,6 +67,9 @@ public class CustomerDAOImpl implements CustomerDAO{
 			System.out.println("2");
 			conn = DatabaseConnectionImpl.getInstance().getConnection();
 			System.out.println("3");
+			if(conn.equals(null)) {
+				System.out.println("fuuuuck");
+			}
 			ps = conn.prepareStatement(query);
 			ps.setString(1, email);
 			rs = ps.executeQuery();
@@ -79,9 +82,9 @@ public class CustomerDAOImpl implements CustomerDAO{
 		}catch(SQLException ex) {
 			ex.printStackTrace();
 		}finally {
-//			ConnectionClosers.closeResultSet(rs);
-//			ConnectionClosers.closeStatement(ps);
-//			ConnectionClosers.closeConnection(conn);
+			ConnectionClosers.closeResultSet(rs);
+			ConnectionClosers.closeStatement(ps);
+			ConnectionClosers.closeConnection(conn);
 			
 		}
 		return available;

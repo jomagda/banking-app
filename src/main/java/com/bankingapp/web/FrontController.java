@@ -30,19 +30,19 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		if(request.getMethod().equals("GET")){
-//			ObjectMapper mapper = new ObjectMapper();
-//			response.setContentType("application/json");
-//			response.getOutputStream()
-//				.write(mapper.writeValueAsBytes(RequestHelper.processGet(request, response)));
-//		}else if(request.getMethod().equals("POST")){
-//			ObjectMapper mapper = new ObjectMapper();
-//			response.setContentType("application/json");
-//			response.getOutputStream()
-//				.write(mapper.writeValueAsBytes(RequestHelper.processPost(request, response)));
-//		}
-		boolean bool = new CustomerService().validateEmail("bogum@mail.com");
-		System.out.println("email available " + bool);
+		if(request.getMethod().equals("GET")){
+			ObjectMapper mapper = new ObjectMapper();
+			response.setContentType("application/json");
+			response.getOutputStream()
+				.write(mapper.writeValueAsBytes(RequestHelper.processGet(request, response)));
+		}else if(request.getMethod().equals("POST")){
+			ObjectMapper mapper = new ObjectMapper();
+			response.setContentType("application/json");
+			response.getOutputStream()
+				.write(mapper.writeValueAsBytes(RequestHelper.processPost(request, response)));
+		}
+//		boolean bool = new CustomerService().validateEmail("bogum@mail.com");
+//		System.out.println("email available " + bool);
 	}
 
 	/**
