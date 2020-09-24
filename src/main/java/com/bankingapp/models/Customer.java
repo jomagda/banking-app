@@ -10,7 +10,7 @@ public class Customer {
 	private String streetAddress;
 	private String city;
 	private String state;
-	private String zipcode;
+	private int zipcode;
 	private String email;
 	private String userPassword;
 	private String phone;
@@ -25,7 +25,7 @@ public class Customer {
 	}
 
 	public Customer(int customerID, String firstName, String lastName, String middleInitial, String streetAddress,
-			String city, String state, String zipcode, String email, String userPassword, String phone,
+			String city, String state, int zipcode, String email, String userPassword, String phone,
 			LocalDate birthday, LocalDate dateCreated) {
 		super();
 		this.customerID = customerID;
@@ -99,11 +99,11 @@ public class Customer {
 		this.state = state;
 	}
 
-	public String getZipcode() {
+	public int getZipcode() {
 		return zipcode;
 	}
 
-	public void setZipcode(String zipcode) {
+	public void setZipcode(int zipcode) {
 		this.zipcode = zipcode;
 	}
 
@@ -163,7 +163,7 @@ public class Customer {
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + ((streetAddress == null) ? 0 : streetAddress.hashCode());
 		result = prime * result + ((userPassword == null) ? 0 : userPassword.hashCode());
-		result = prime * result + ((zipcode == null) ? 0 : zipcode.hashCode());
+		result = prime * result + zipcode;
 		return result;
 	}
 
@@ -233,10 +233,7 @@ public class Customer {
 				return false;
 		} else if (!userPassword.equals(other.userPassword))
 			return false;
-		if (zipcode == null) {
-			if (other.zipcode != null)
-				return false;
-		} else if (!zipcode.equals(other.zipcode))
+		if (zipcode != other.zipcode)
 			return false;
 		return true;
 	}
@@ -248,6 +245,7 @@ public class Customer {
 				+ ", state=" + state + ", zipcode=" + zipcode + ", email=" + email + ", userPassword=" + userPassword
 				+ ", phone=" + phone + ", birthday=" + birthday + ", dateCreated=" + dateCreated + "]";
 	}
+
 	
 	
 	

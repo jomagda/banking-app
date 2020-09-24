@@ -11,10 +11,15 @@ public class DatabaseConnectionImpl extends DatabaseConnection {
 	@Override
 	public Connection getConnection() {
 		try {
-			System.out.println(getDatabaseURL());
-			Class.forName(getDriver());
+			Class.forName("org.postgresql.Driver");
 			Connection conn = 
 					DriverManager.getConnection(getDatabaseURL(), getDatabaseUsername(), getDatabasePassword());
+			if(conn != null) {
+				System.out.println("conn ok");
+			}
+			else {
+				System.out.println("no conn");
+			}
 			return conn;
 		} catch(ClassNotFoundException ex) {
 			Logger.getLogger(DatabaseConnectionImpl.class.getName()).log(Level.SEVERE, null, ex);

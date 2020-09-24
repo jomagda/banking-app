@@ -13,4 +13,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<description></description>
+  	<display-name>FrontController</display-name>
+  	<servlet-name>FrontController</servlet-name>
+  	<servlet-class>com.bankingapp.web.FrontController</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FrontController</servlet-name>
+  	<url-pattern>/FrontController/*</url-pattern>
+  </servlet-mapping>
 </web-app>
